@@ -23,19 +23,26 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
+
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },
+    
+    {name: 'Resume',href:'https://drive.google.com/file/d/1NBnbfzW6xzHqFhKcsJah82dOETPmJ8jz/view?usp=sharing'}
   ];
 
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
-    document.querySelector(id)?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    if (id.startsWith('#')) {
+      document.querySelector(id)?.scrollIntoView({
+        behavior: 'smooth'
+      });
+    } else {
+      window.location.href = id;
+    }
   };
 
   return (
