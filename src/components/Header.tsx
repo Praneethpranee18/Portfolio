@@ -22,7 +22,6 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
@@ -30,8 +29,6 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },
-
-    { name: 'Resume', href: '/assets/resume.pdf' }
   ];
 
   const scrollToSection = (id: string) => {
@@ -63,13 +60,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => {
-                  if (link.name !== 'Resume') {
-                    e.preventDefault();
-                    scrollToSection(link.href);
-                  }
+                  e.preventDefault();
+                  scrollToSection(link.href);
                 }}
-                target={link.name === 'Resume' ? '_blank' : undefined}
-                rel={link.name === 'Resume' ? 'noopener noreferrer' : undefined}
                 className="text-sm font-medium hover:text-teal-500 transition-colors duration-300"
               >
                 {link.name}
