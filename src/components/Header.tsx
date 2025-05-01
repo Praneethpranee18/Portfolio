@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
     { name: 'Contact', href: '#contact' },
-    { name: 'Resume', href: '/resume.pdf' }
+    { name: 'Resume', href: '../assets/resume.pdf' }
   ];
 
   const scrollToSection = (id: string) => {
